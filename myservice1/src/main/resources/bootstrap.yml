@@ -1,0 +1,15 @@
+#启动注册服务
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${eureka.host:localhost}:${eureka.port:9091}/eureka
+  instance:
+    lease-expiration-duration-in-seconds: 4
+    lease-renewal-interval-in-seconds: 3
+    metadata-map:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+endpoints:
+  refresh:
+    enabled: true
+  restart:
+    enabled: true
